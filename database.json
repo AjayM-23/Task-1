@@ -1,0 +1,19 @@
+{
+  "loginData": [
+    {
+      "logUsername": "ab",
+      "logPassword": "ab",
+      "id": 1
+    }
+  ],
+  "signUpData": [
+    {
+      "name": "ab",
+      "email": "ab",
+      "username": "ab",
+      "password": "ab",
+      "confirmPassword": "ab",
+      "id": 1
+    }
+  ]
+}
