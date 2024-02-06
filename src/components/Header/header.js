@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Button, Modal } from "antd";
+import { message, Modal } from "antd";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   const { matchedUser } = props;
   const [profile, setProfile] = useState(false);
+  const [letter, setLetter] = useState("Z");
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "LoggedOut successfully",
+    });
+  };
 
   useEffect(() => {
     console.log(matchedUser);
+    if (matchedUser) {
+      setLetter(matchedUser.name.charAt(0).toUpperCase());
+      console.log("First letter of the name:", letter);
+    }
   }, [matchedUser]);
 
   const [modal2Open, setModal2Open] = useState(false);
@@ -16,13 +29,16 @@ const Header = (props) => {
 
   return (
     <div className="w-[100%] h-[15vh] bg-[#6D213C] flex items-center justify-between px-10">
-      <div className="text-[24px] text-white capitalize">
+      {contextHolder}
+      <div className="text-[30px] font-semibold text-white capitalize">
         {matchedUser ? matchedUser.name : " "}
       </div>
       <div
-        className="w-[60px] h-[60px] bg-white rounded-[30px] relative cursor-pointer"
+        className="w-[60px] h-[60px] bg-[#512DA8] text-[30px] font-semibold text-white flex justify-center items-center rounded-[30px] relative cursor-pointer"
         onClick={() => setModal2Open(true)}
-      ></div>
+      >
+        {letter}
+      </div>
       <Modal
         open={modal2Open}
         onOk={() => setModal2Open(false)}
@@ -38,25 +54,34 @@ const Header = (props) => {
         }}
       >
         <div
-          className="text-[16px] mb-2 cursor-pointer transition-all duration-700 ease-in-out"
+          className="w-auto text-[16px] mb-2 cursor-pointer transition-all duration-700 ease-in-out"
           onClick={() => setProfile(!profile)}
         >
           <UserOutlined className="pr-2" />
           Profile
         </div>
         <div
-          className={`text-[16px] transition-all duration-700 ease-in-out ${
+          className={`w-[100%] text-[16px] transition-all duration-700 ease-in-out ${
             profile ? "max-h-full opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <h1 className="border-b-[2px] pb-2 border-[#FAF3E0]">
-            {matchedUser ? matchedUser.username : ""}
+          <h1 className="border-y-[2px] pb-2 border-[#FAF3E0] capitalize">
+            Name:{" "}
+            <span className="font-bold">
+              {matchedUser ? matchedUser.name : ""}
+            </span>
           </h1>
           <h1 className="border-b-[2px] pb-2 border-[#FAF3E0]">
-            {matchedUser ? matchedUser.name : ""}
+            Username:{" "}
+            <span className="font-bold">
+              {matchedUser ? matchedUser.username : ""}
+            </span>
           </h1>
           <h1 className="border-b-[2px] pb-2 border-[#FAF3E0]">
-            {matchedUser ? matchedUser.email : ""}
+            email:{" "}
+            <span className="font-bold">
+              {matchedUser ? matchedUser.email : ""}
+            </span>
           </h1>
         </div>
         <div

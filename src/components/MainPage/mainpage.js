@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Content from "../Content/content";
 import Header from "../Header/header";
 import Sidebar from "../Sidebar/sidebar";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 const MainContent = () => {

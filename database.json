@@ -1,19 +1,112 @@
 {
   "loginData": [
     {
-      "logUsername": "ab",
-      "logPassword": "ab",
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
       "id": 1
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 2
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 3
+    },
+    {
+      "logUsername": "aj",
+      "logPassword": "ajay",
+      "id": 4
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 5
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 6
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 7
+    },
+    {
+      "logUsername": "ajam16",
+      "logPassword": "ajay",
+      "id": 8
+    },
+    {
+      "logUsername": "ajam16",
+      "logPassword": "ajay",
+      "id": 9
+    },
+    {
+      "logUsername": "ajam16",
+      "logPassword": "ajay",
+      "id": 10
+    },
+    {
+      "logUsername": "ajaym16",
+      "logPassword": "ajay",
+      "id": 11
+    },
+    {
+      "logUsername": "ajaym",
+      "logPassword": "ajay2123",
+      "id": 12
+    },
+    {
+      "logUsername": "ajaym",
+      "logPassword": "ajay@123",
+      "id": 13
     }
   ],
   "signUpData": [
     {
-      "name": "ab",
-      "email": "ab",
-      "username": "ab",
-      "password": "ab",
-      "confirmPassword": "ab",
+      "name": "ajay",
+      "email": "ajay@gmail.com",
+      "username": "ajaym16",
+      "password": "ajay",
+      "confirmPassword": "ajay",
       "id": 1
+    },
+    {
+      "name": "ajaym",
+      "email": "ajay@gmail.com",
+      "username": "ajaym",
+      "password": "ajay@123",
+      "confirmPassword": "ajay@123",
+      "id": 2,
+      "totalSalary": "10000",
+      "timestamp": "Feb 6, 2024, 3:47 PM",
+      "expenses": {
+        "explist1": {
+          "itemName": "water",
+          "cost": 20,
+          "timestamp": "Feb 6, 2024, 3:49 PM"
+        },
+        "explist2": {
+          "itemName": "oil",
+          "cost": 20,
+          "timestamp": "Feb 6, 2024, 3:50 PM"
+        },
+        "explist3": {
+          "itemName": "apple",
+          "cost": 23,
+          "timestamp": "Feb 6, 2024, 3:50 PM"
+        },
+        "explist4": {
+          "itemName": "party",
+          "cost": 100,
+          "timestamp": "Feb 6, 2024, 3:50 PM"
+        }
+      },
+      "remainingSalary": 9837
     }
   ]
 }

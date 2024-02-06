@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { Input, Button, Form } from "antd";
+import { Input, Button, Form, message } from "antd";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
 
 const LoginSignUp = () => {
   const [switchBetween, setSwitchBetween] = useState("login");
@@ -16,12 +15,24 @@ const LoginSignUp = () => {
   const handleSwitch = (val) => {
     setSwitchBetween(val);
   };
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "Invalid Login credentials",
+    });
+  };
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "SignUp successfull",
+    });
+  };
 
   const getData = async () => {
     try {
-      // const loginResponse = await axios.get("http://localhost:3000/loginData");
-      // setLoginData(loginResponse.data);
-
       const signUpResponse = await axios.get(
         "http://localhost:3000/signUpData"
       );
@@ -59,7 +70,7 @@ const LoginSignUp = () => {
         (user) =>
           user.username === values.logUsername &&
           user.password === values.logPassword
-      )
+      );
 
       if (match) {
         console.log("Login successful, proceed to the next page");
@@ -78,9 +89,11 @@ const LoginSignUp = () => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     // <data.Provider value={{ loginData, signUpData }}>
     <div className="w-[100%] h-[100vh] flex justify-center items-center">
+      {contextHolder}
       {switchBetween === "login" ? (
         <Form
           name="basic"
@@ -140,7 +153,12 @@ const LoginSignUp = () => {
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit" className="bg-[blue]">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="bg-[blue]"
+              onClick={error}
+            >
               Submit
             </Button>
           </Form.Item>
@@ -202,6 +220,10 @@ const LoginSignUp = () => {
                 required: true,
                 message: "Please input your Email!",
               },
+              {
+                pattern: /^[a-zA-Z0-9._-]+@gmail\.com$/,
+                message: "Email should be in the format something@gmail.com!",
+              },
             ]}
           >
             <Input
@@ -216,6 +238,10 @@ const LoginSignUp = () => {
               {
                 required: true,
                 message: "Please input your username!",
+              },
+              {
+                min: 5,
+                message: "Name should have more than 4 letters!",
               },
             ]}
           >
@@ -276,7 +302,12 @@ const LoginSignUp = () => {
               span: 30,
             }}
           >
-            <Button type="primary" htmlType="submit" className="bg-[blue]">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="bg-[blue]"
+              onClick={success}
+            >
               Submit
             </Button>
           </Form.Item>
