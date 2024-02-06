@@ -210,7 +210,7 @@ const Content = (props) => {
             <h2 className="text-[18px] py-2">Price List</h2>
             <form className="flex flex-col">
               <label htmlFor="itemName" className="text-[18px] pr-2">
-                Total Salary:
+                Total Budget:
               </label>
               <input
                 type="tel"
@@ -258,7 +258,7 @@ const Content = (props) => {
           </div>
         </Modal>
       </div>
-      <div className="w-[100%] h-auto flex justify-center items-center gap-4 overflow-y-scroll">
+      <div className="w-[100%] h-auto flex justify-center items-center gap-4">
         <div className="w-[40%] h-[60vh] bg-white rounded-lg overflow-y-scroll">
           <h1 className="text-[22px] p-2 font-semibold underline text-center">
             Previous Months History
@@ -327,10 +327,11 @@ const Content = (props) => {
                       ? `Remaining salary : ${item.remainingSalary}Rs`
                       : " "}
                   </div>
-
-                  <div className="w-[100%] h-[50vh] flex justify-center items-center p-2 font-semibold text-[20px]">
-                    <Empty />
-                  </div>
+                  {(item.isPreviousMonth ?? []).length === 0 && (
+                    <div className="w-[100%] h-[50vh] flex justify-center items-center p-2 font-semibold text-[20px]">
+                      <Empty />
+                    </div>
+                  )}
                 </span>
               ))}
             </ul>
@@ -353,7 +354,7 @@ const Content = (props) => {
                       }`}
                     >
                       {matchedUser.id === item.id && item.totalSalary
-                        ? `Total salary : $${item.totalSalary},`
+                        ? `Total budget : $${item.totalSalary},`
                         : " "}
                     </div>
                     <div
@@ -396,7 +397,7 @@ const Content = (props) => {
                     }`}
                   >
                     {matchedUser.id === item.id && item.remainingSalary
-                      ? `Remaining salary : $${item.remainingSalary}`
+                      ? `Remaining budget : $${item.remainingSalary}`
                       : " "}
                   </div>
                   {matchedUser.id === item.id &&

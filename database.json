@@ -82,31 +82,36 @@
       "password": "ajay@123",
       "confirmPassword": "ajay@123",
       "id": 2,
-      "totalSalary": "10000",
-      "timestamp": "Feb 6, 2024, 3:47 PM",
+      "totalSalary": "5000",
+      "timestamp": "Feb 6, 2024, 4:30 PM",
       "expenses": {
         "explist1": {
-          "itemName": "water",
-          "cost": 20,
-          "timestamp": "Feb 6, 2024, 3:49 PM"
+          "itemName": "oil",
+          "cost": 23,
+          "timestamp": "Feb 6, 2024, 4:30 PM"
         },
         "explist2": {
           "itemName": "oil",
-          "cost": 20,
-          "timestamp": "Feb 6, 2024, 3:50 PM"
+          "cost": 12,
+          "timestamp": "Feb 6, 2024, 4:31 PM"
         },
         "explist3": {
           "itemName": "apple",
-          "cost": 23,
-          "timestamp": "Feb 6, 2024, 3:50 PM"
+          "cost": 12,
+          "timestamp": "Feb 6, 2024, 4:32 PM"
         },
         "explist4": {
-          "itemName": "party",
-          "cost": 100,
-          "timestamp": "Feb 6, 2024, 3:50 PM"
+          "itemName": "water",
+          "cost": 23,
+          "timestamp": null
+        },
+        "explist5": {
+          "itemName": "apple",
+          "cost": 12,
+          "timestamp": null
         }
       },
-      "remainingSalary": 9837
+      "remainingSalary": 4918
     }
   ]
 }
